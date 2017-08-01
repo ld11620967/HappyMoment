@@ -1,4 +1,4 @@
-package com.nilin.happymoment.repository
+package com.nilin.happymoment.bean
 
 /**
  * Created by nilin on 2017/7/30.

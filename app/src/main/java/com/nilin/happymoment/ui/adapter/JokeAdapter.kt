@@ -3,7 +3,7 @@ package com.nilin.happymoment
 import android.content.Context
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.nilin.happymoment.repository.Contentlist
+import com.nilin.happymoment.bean.Contentlist
 
 
 

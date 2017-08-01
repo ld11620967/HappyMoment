@@ -1,6 +1,6 @@
 package com.nilin.happymoment.net
 
-import com.nilin.happymoment.repository.Result
+import com.nilin.happymoment.bean.Result
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,6 +22,9 @@ interface Api {
                 @Query("title") title: String,
                 @Query("showapi_sign") showapi_sign: String): Observable<Result>
 
+//    @GET("v1/weather/query?key=1d47f9f5e9be8")
+//    fun getData(@Query("city") city: String): Observable<Weather>
+
     companion object Factory{
         fun create():Api {
 
@@ -37,7 +40,6 @@ interface Api {
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl("http://route.showapi.com/")
                     .build()
-
             return retrofit.create(Api::class.java)
         }
     }

@@ -83,9 +83,8 @@ class MainActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({
-                    result ->
-//                    parseResult(result)
-                    Log.i("1111",result.toString())
+                    Result->
+                    Log.i("1111",Result.showapi_res_body.pagebean.contentlist[0].text)
                 }, {})
     }
 
