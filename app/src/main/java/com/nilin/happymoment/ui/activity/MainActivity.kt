@@ -1,5 +1,6 @@
 package com.nilin.happymoment.ui.activity
 
+import android.content.Context
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.View
 
 import com.nilin.happymoment.R
+import com.nilin.happymoment.bean.Contentlist
 import com.nilin.happymoment.net.Api
 import com.nilin.happymoment.ui.adapter.MyFragmentPagerAdapter
 import com.nilin.happymoment.ui.fragment.JokeFragment
@@ -38,7 +40,6 @@ class MainActivity : AppCompatActivity() {
 //        supportActionBar!!.setDisplayHomeAsUpEnabled(true) // Show toolbar return arrow.
         toolbar.setNavigationOnClickListener(View.OnClickListener { })
         initView()
-        loadData(29,1,"","337a9210f689433d9a45a97f037406dc")
     }
 
     /**
@@ -50,15 +51,15 @@ class MainActivity : AppCompatActivity() {
         listFragment = ArrayList<Fragment>()
         listFragment!!.add(JokeFragment())
         listFragment!!.add(PictureFragment())
-        listFragment!!.add(VoiceFragment())
-        listFragment!!.add(VideoFragment())
+//        listFragment!!.add(VoiceFragment())
+//        listFragment!!.add(VideoFragment())
 
         // 将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
         listTitle = ArrayList<String>()
         listTitle!!.add("段子")
         listTitle!!.add("图片")
-        listTitle!!.add("声音")
-        listTitle!!.add("视频")
+//        listTitle!!.add("声音")
+//        listTitle!!.add("视频")
 
 //         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         // 设置TabLayout的模式
@@ -67,8 +68,8 @@ class MainActivity : AppCompatActivity() {
         // 为TabLayout添加tab名称
         tabLayout.addTab(tabLayout.newTab().setText(listTitle!![0]))
         tabLayout.addTab(tabLayout.newTab().setText(listTitle!![1]))
-        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![2]))
-        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![3]))
+//        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![2]))
+//        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![3]))
 
 
         myFragmentPagerAdapter = MyFragmentPagerAdapter(supportFragmentManager, listFragment, listTitle)
@@ -77,15 +78,5 @@ class MainActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
     }
 
-    protected fun loadData(type: Int, page: Int,title:String,showapi_sign:String) {
-        val api = Api.Factory.create()
-        api.getData(type, page,title,showapi_sign)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe({
-                    Result->
-                    Log.i("1111",Result.showapi_res_body.pagebean.contentlist[0].text)
-                }, {})
-    }
 
 }

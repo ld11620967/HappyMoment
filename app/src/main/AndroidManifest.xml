@@ -5,11 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.nilin.happymoment.ui.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
