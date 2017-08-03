@@ -17,13 +17,15 @@ class PictureAdapter(var context: Context, layoutId:Int) : BaseQuickAdapter<Cont
     override fun convert(viewHolder: BaseViewHolder?, article: Contentlist?) {
 
         viewHolder!!.setText(R.id.time, DateUtils.getRelativeTimeSpanString(sdf.parse(article!!.create_time).time))
-        viewHolder!!.setText(R.id.title,article!!.text)
+        viewHolder.setText(R.id.title,article.text)
 
-        val image: ImageView = viewHolder!!.getView<ImageView>(R.id.image)
-        Glide.with(context).load(article!!.image0).into(image)
+        val image: ImageView = viewHolder.getView<ImageView>(R.id.image)
+
+        Glide
+                .with(context)
+                .load(article.image0)
+                .into(image)
     }
-
-
 }
 
 
