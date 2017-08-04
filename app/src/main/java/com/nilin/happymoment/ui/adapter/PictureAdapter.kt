@@ -30,7 +30,7 @@ class PictureAdapter(var context: Context, layoutId:Int) : BaseQuickAdapter<Cont
                 .error(R.drawable.error)
                 .priority(Priority.HIGH)
 //                .diskCacheStrategy(DiskCacheStrategy.NONE)
-        Glide
+        GlideApp
                 .with(context)
                 .load(article.image0)
                 .apply(options)
