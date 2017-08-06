@@ -5,6 +5,7 @@ import android.text.format.DateUtils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.nilin.happymoment.bean.Contentlist
@@ -24,17 +25,19 @@ class PictureAdapter(var context: Context, layoutId:Int) : BaseQuickAdapter<Cont
 
         val image: ImageView = viewHolder.getView<ImageView>(R.id.image)
 
-        val options = RequestOptions()
-                .centerCrop()
-                .placeholder(R.drawable.loading)
-                .error(R.drawable.error)
-                .priority(Priority.HIGH)
-//                .diskCacheStrategy(DiskCacheStrategy.NONE)
+//        val options = RequestOptions()
+//                .centerCrop()
+//                .placeholder(R.drawable.loading)
+//                .error(R.drawable.error)
+//                .priority(Priority.HIGH)
+
         GlideApp
                 .with(context)
                 .load(article.image0)
-                .apply(options)
-                .transition(DrawableTransitionOptions.withCrossFade(50))
+                .error(R.drawable.error)
+//                .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                .apply(options)
+//                .transition(DrawableTransitionOptions.withCrossFade(50))
                 .into(image)
     }
 }

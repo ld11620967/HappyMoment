@@ -4,29 +4,17 @@
     android:layout_height="wrap_content"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/title"
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:id="@+id/videoplayer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="18dp" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:adjustViewBounds="true"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:contentDescription="@null"/>
+        android:layout_height="200dp" />
 
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/image"
+        android:layout_below="@+id/videoplayer"
         android:paddingBottom="8dp"
         android:paddingRight="8dp"
         android:paddingTop="5dp"
