@@ -11,61 +11,40 @@
         android:textColor="@color/black"
         android:textSize="18dp" />
 
-    <LinearLayout
-        android:id="@+id/SeekBar"
+    <RelativeLayout
+        android:id="@+id/rl_voice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp">
+        android:layout_below="@+id/title">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
 
         <ImageButton
             android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/voice_select" />
+            android:background="@drawable/voice_select"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
-        <TextView
-            android:id="@+id/MusicStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="00:00"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
-
-        <SeekBar
-            android:id="@+id/MusicSeekBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:max="100"
-            android:progressDrawable="@drawable/play_progressbar"
-            android:thumb="@drawable/progress_thumb"
-            android:thumbOffset="4dp" />
-        <!--style="?android:attr/progressBarStyleHorizontal"-->
-
-        <TextView
-            android:id="@+id/MusicTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:text="00:12"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/SeekBar"
+        android:layout_below="@+id/rl_voice"
         android:paddingBottom="8dp"
         android:paddingRight="8dp"
-        android:paddingTop="5dp"
+        android:paddingTop="15dp"
         android:textSize="12dp" />
 
     <View

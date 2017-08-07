@@ -29,7 +29,7 @@
         android:layout_below="@+id/image"
         android:paddingBottom="8dp"
         android:paddingRight="8dp"
-        android:paddingTop="5dp"
+        android:paddingTop="15dp"
         android:textSize="12dp" />
 
     <View

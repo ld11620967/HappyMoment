@@ -2,6 +2,7 @@ package com.nilin.happymoment
 
 import android.content.Context
 import android.text.format.DateUtils
+import android.widget.ImageView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.nilin.happymoment.bean.Contentlist
@@ -14,15 +15,22 @@ class VoiceAdapter(var context: Context, layoutId: Int) : BaseQuickAdapter<Conte
 
     override fun convert(viewHolder: BaseViewHolder?, article: Contentlist?) {
 
-        viewHolder!!.setText(R.id.time, DateUtils.getRelativeTimeSpanString(sdf.parse(article!!.create_time).time))
+        val image: ImageView = viewHolder!!.getView<ImageView>(R.id.image)
+        viewHolder.setText(R.id.time, DateUtils.getRelativeTimeSpanString(sdf.parse(article!!.create_time).time))
         viewHolder.setText(R.id.title, article.text)
-//                .setText(R.id.MusicStatus, article.MusicStatus)
-//                .setText(R.id.MusicTime, article.MusicTime)
                 .addOnClickListener(R.id.play)
-                .addOnClickListener(R.id.MusicSeekBar)
-
+        GlideApp
+                .with(context)
+                .asBitmap()
+                .load(article.image3)
+                .centerCrop()
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
+                .into(image)
     }
 
 }
+
+
 
 

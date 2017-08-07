@@ -47,10 +47,6 @@ class PictureFragment : Fragment() {
         recyclerview.adapter = adapter
         adapter!!.setOnLoadMoreListener({ loadMore() }, recyclerview)
 
-//        fab.onClick {
-//            recyclerview.smoothScrollToPosition(0)
-//        }
-
         swipeLayout.setOnRefreshListener({
             page = 1
             isRefresh = true

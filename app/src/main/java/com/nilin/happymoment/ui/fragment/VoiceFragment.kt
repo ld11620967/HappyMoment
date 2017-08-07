@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_voice.*
 import org.jetbrains.anko.support.v4.toast
 import android.media.MediaPlayer
 import android.net.Uri
-import java.util.concurrent.Executors
 
 
 class VoiceFragment : Fragment() {
@@ -27,11 +26,8 @@ class VoiceFragment : Fragment() {
     var adapter: VoiceAdapter? = null
     var page = 1
     var isRefresh = false
-    var mp: MediaPlayer? = null
-    var isPlaying:Boolean=false
-
-    //创建一个单实例的线程,用于更新音乐信息
-    private val es = Executors.newSingleThreadExecutor()
+    var mp: MediaPlayer? = MediaPlayer()
+    var isPlaying: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,24 +52,15 @@ class VoiceFragment : Fragment() {
 
         adapter!!.setOnItemChildClickListener(BaseQuickAdapter.OnItemChildClickListener {
             adapter, view, position ->
-            val contentlist=adapter.data[position] as Contentlist
-            if (isPlaying) {
-                mp!!.pause()
-                isPlaying=false
-            } else {
-                val playUri = Uri.parse(contentlist.voice_uri)
-                mp= MediaPlayer.create(context, playUri)
+            val contentlist = adapter.data[position] as Contentlist
+            val playUri = Uri.parse(contentlist.voice_uri)
+            if (!mp!!.isPlaying()) {
+                mp = MediaPlayer.create(context, playUri)
                 mp!!.start()
-//                play.(R.drawable.stop)
-                isPlaying=true
+            } else {
+                mp!!.stop();
             }
-//            es.execute(updateSteatusRunnable);//更新进度值
         })
-
-
-//        fab.onClick {
-//            recyclerview.smoothScrollToPosition(0)
-//        }
 
         swipeLayout.setOnRefreshListener({
             page = 1
@@ -131,10 +118,12 @@ class VoiceFragment : Fragment() {
         adapter!!.loadMoreComplete()
     }
 
-    override fun onPause() {
-        super.onPause()
-        mp!!.release()
-    }
-
+//    override fun onPause() {
+//        super.onPause()
+//        if (mp!!.isPlaying) {
+//            mp!!.release()
+//            isPlaying = false
+//        }
+//    }
 }
 

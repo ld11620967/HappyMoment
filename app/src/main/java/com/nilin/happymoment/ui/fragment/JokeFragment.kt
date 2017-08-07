@@ -3,7 +3,6 @@ package com.nilin.happymoment.ui.fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,10 +43,6 @@ class JokeFragment : Fragment() {
         adapter = JokeAdapter(activity!!.applicationContext, R.layout.item_joke)
         recyclerview.adapter = adapter
         adapter!!.setOnLoadMoreListener({ loadMore() }, recyclerview)
-
-//        fab.onClick {
-//            recyclerview.smoothScrollToPosition(0)
-//        }
 
         swipeLayout.setOnRefreshListener({
             page = 1

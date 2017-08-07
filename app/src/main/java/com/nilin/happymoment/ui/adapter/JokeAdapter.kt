@@ -15,7 +15,7 @@ class JokeAdapter(var context: Context, layoutId: Int) : BaseQuickAdapter<Conten
     override fun convert(viewHolder: BaseViewHolder?, article: Contentlist?) {
 
         viewHolder!!.setText(R.id.time, DateUtils.getRelativeTimeSpanString(sdf.parse(article!!.create_time).time))
-        viewHolder.setText(R.id.title, article.text)
+        viewHolder.setText(R.id.title, article.text.replace("    ", "        "))
     }
 
 }
