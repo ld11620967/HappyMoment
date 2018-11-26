@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nilin.happymoment.PictureAdapter
+import com.nilin.happymoment.ui.adapter.PictureAdapter
 
 import com.nilin.happymoment.R
 import com.nilin.happymoment.bean.Contentlist
@@ -37,7 +37,7 @@ class PictureFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadData(10,1,"","337a9210f689433d9a45a97f037406dc")
+        loadData(page, 42858, "337a9210f689433d9a45a97f037406dc")
         initRecyclerView()
     }
 
@@ -50,32 +50,31 @@ class PictureFragment : Fragment() {
         swipeLayout.setOnRefreshListener({
             page = 1
             isRefresh = true
-            loadData(10, page,"","337a9210f689433d9a45a97f037406dc")
+            loadData(page, 42858, "337a9210f689433d9a45a97f037406dc")
         })
     }
 
 
-    protected fun loadData(type: Int, page: Int,title:String,showapi_sign:String) {
+    protected fun loadData(page: Int, showapi_appid: Int, showapi_sign: String) {
         val api = Api.Factory.create()
-        api.getData(type, page,title,showapi_sign)
+        api.getPictureData(page, 42858, showapi_sign)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe({
-                    Result->
+                .subscribe({ Result ->
                     parseResult(Result)
                 }, {})
     }
 
     private fun loadMore() {
         page++
-        loadData(10, page,"","337a9210f689433d9a45a97f037406dc")
+        loadData(page, 42858, "337a9210f689433d9a45a97f037406dc")
     }
 
     fun parseResult(result: Result) {
-        if (result.showapi_res_body.ret_code!=0) {
+        if (result.showapi_res_body.ret_code != 0) {
             loadError()
-        }else{
-            loadSuccess(result.showapi_res_body.pagebean.contentlist)
+        } else {
+            loadSuccess(result.showapi_res_body.contentlist)
         }
         loadFinish()
     }

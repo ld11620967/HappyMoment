@@ -16,14 +16,21 @@ import retrofit2.http.Query
  */
 interface Api {
 
-    @GET("255-1?showapi_appid=42858")
-    fun getData(@Query("type") type: Int,
-                @Query("page") page: Int,
-                @Query("title") title: String,
+//    @GET("341-1?showapi_appid=42858")
+//    fun getData(@Query("type") type: Int,
+//                @Query("page") page: Int,
+//                @Query("title") title: String,
+//                @Query("showapi_sign") showapi_sign: String): Observable<Result>
+
+    @GET("341-1?maxResult=50")
+    fun getData(@Query("page") page: Int,
+                @Query("showapi_appid") showapi_appid: Int,
                 @Query("showapi_sign") showapi_sign: String): Observable<Result>
 
-//    @GET("v1/weather/query?key=1d47f9f5e9be8")
-//    fun getData(@Query("city") city: String): Observable<Weather>
+    @GET("341-2?maxResult=50")
+    fun getPictureData(@Query("page") page: Int,
+                       @Query("showapi_appid") showapi_appid: Int,
+                       @Query("showapi_sign") showapi_sign: String): Observable<Result>
 
     companion object Factory{
         fun create():Api {

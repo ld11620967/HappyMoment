@@ -10,8 +10,8 @@ import com.nilin.happymoment.R
 import com.nilin.happymoment.ui.adapter.MyFragmentPagerAdapter
 import com.nilin.happymoment.ui.fragment.JokeFragment
 import com.nilin.happymoment.ui.fragment.PictureFragment
-import com.nilin.happymoment.ui.fragment.VideoFragment
-import com.nilin.happymoment.ui.fragment.VoiceFragment
+//import com.nilin.happymoment.ui.fragment.VideoFragment
+//import com.nilin.happymoment.ui.fragment.VoiceFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 import java.util.ArrayList
@@ -51,15 +51,15 @@ class MainActivity : AppCompatActivity() {
         listFragment = ArrayList<Fragment>()
         listFragment!!.add(JokeFragment())
         listFragment!!.add(PictureFragment())
-        listFragment!!.add(VoiceFragment())
-        listFragment!!.add(VideoFragment())
+//        listFragment!!.add(VoiceFragment())
+//        listFragment!!.add(VideoFragment())
 
         // 将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
         listTitle = ArrayList<String>()
         listTitle!!.add("段子")
         listTitle!!.add("图片")
-        listTitle!!.add("声音")
-        listTitle!!.add("视频")
+//        listTitle!!.add("声音")
+//        listTitle!!.add("视频")
 
 //         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         // 设置TabLayout的模式
@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity() {
         // 为TabLayout添加tab名称
         tabLayout.addTab(tabLayout.newTab().setText(listTitle!![0]))
         tabLayout.addTab(tabLayout.newTab().setText(listTitle!![1]))
-        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![2]))
-        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![3]))
+//        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![2]))
+//        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![3]))
 
 
         myFragmentPagerAdapter = MyFragmentPagerAdapter(supportFragmentManager, listFragment, listTitle)
