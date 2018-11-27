@@ -12,7 +12,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
 
 //class VideoAdapter(var context: Context, layoutId: Int) : BaseQuickAdapter<Contentlist, BaseViewHolder>(layoutId) {
 //
-//    val sdf: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss")
+//    val sdf: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss", Locale.getDefault())
 //
 //    override fun convert(viewHolder: BaseViewHolder?, article: Contentlist?) {
 //

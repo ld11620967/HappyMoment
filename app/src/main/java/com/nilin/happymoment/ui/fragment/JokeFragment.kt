@@ -1,5 +1,6 @@
 package com.nilin.happymoment.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -34,7 +35,7 @@ class JokeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        loadData(page, 42858, "337a9210f689433d9a415a97f037406dc")
+        loadData(page, 42858, "337a9210f689433d9a45a97f037406dc")
         initRecyclerView()
     }
 
@@ -52,9 +53,10 @@ class JokeFragment : Fragment() {
     }
 
 
+    @SuppressLint("CheckResult")
     protected fun loadData(page: Int, showapi_appid: Int, showapi_sign: String) {
         val api = Api.Factory.create()
-        api.getData(page, showapi_appid, showapi_sign)
+        api.getJokeData(page, showapi_appid, showapi_sign)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ Result ->

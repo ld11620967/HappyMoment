@@ -3,22 +3,20 @@ package com.nilin.happymoment.ui.adapter;
 import android.content.Context
 import android.text.format.DateUtils
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.nilin.happymoment.bean.Contentlist
 import java.text.SimpleDateFormat
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.nilin.happymoment.GlideApp
 import com.nilin.happymoment.R
+import java.util.*
 
 
 class PictureAdapter(var context: Context, layoutId:Int) : BaseQuickAdapter<Contentlist, BaseViewHolder>(layoutId) {
 
-    val sdf: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss")
+    val sdf: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss", Locale.getDefault())
 
     override fun convert(viewHolder: BaseViewHolder?, article: Contentlist?) {
 

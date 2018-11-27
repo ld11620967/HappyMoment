@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
 
 //class VoiceAdapter(var context: Context, layoutId: Int) : BaseQuickAdapter<Contentlist, BaseViewHolder>(layoutId) {
 //
-//    val sdf: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss")
+//    val sdf: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss", Locale.getDefault())
 //
 //    override fun convert(viewHolder: BaseViewHolder?, article: Contentlist?) {
 //

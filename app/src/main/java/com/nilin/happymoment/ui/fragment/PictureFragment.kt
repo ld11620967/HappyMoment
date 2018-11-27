@@ -1,5 +1,6 @@
 package com.nilin.happymoment.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -7,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nilin.happymoment.ui.adapter.PictureAdapter
-
 import com.nilin.happymoment.R
 import com.nilin.happymoment.bean.Contentlist
 import com.nilin.happymoment.bean.Result
@@ -33,7 +33,6 @@ class PictureFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_picture, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadData(page, 42858, "337a9210f689433d9a45a97f037406dc")
@@ -54,9 +53,10 @@ class PictureFragment : Fragment() {
     }
 
 
+    @SuppressLint("CheckResult")
     protected fun loadData(page: Int, showapi_appid: Int, showapi_sign: String) {
         val api = Api.Factory.create()
-        api.getPictureData(page, 42858, showapi_sign)
+        api.getPictureData(page, showapi_appid, showapi_sign)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ Result ->
@@ -101,4 +101,5 @@ class PictureFragment : Fragment() {
         }
         adapter!!.loadMoreComplete()
     }
+
 }

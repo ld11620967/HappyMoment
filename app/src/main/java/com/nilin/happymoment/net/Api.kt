@@ -23,7 +23,7 @@ interface Api {
 //                @Query("showapi_sign") showapi_sign: String): Observable<Result>
 
     @GET("341-1?maxResult=50")
-    fun getData(@Query("page") page: Int,
+    fun getJokeData(@Query("page") page: Int,
                 @Query("showapi_appid") showapi_appid: Int,
                 @Query("showapi_sign") showapi_sign: String): Observable<Result>
 

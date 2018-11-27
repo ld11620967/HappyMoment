@@ -1,5 +1,6 @@
 package com.nilin.happymoment.ui.activity
 
+import android.annotation.SuppressLint
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -119,6 +120,7 @@ class MainActivity : AppCompatActivity() {
         return super.onKeyDown(keyCode, event)
     }
 
+    @SuppressLint("ShowToast")
     fun DisplayToast(str: String) {
         if (mytoast == null) {
             mytoast = Toast.makeText(this@MainActivity, str, Toast.LENGTH_SHORT)
