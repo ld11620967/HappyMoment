@@ -1,6 +1,7 @@
 package com.nilin.happymoment.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -20,10 +21,10 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
 import android.support.v4.view.ViewPager
 import android.view.KeyEvent
 import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_joke.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private var myFragmentPagerAdapter: MyFragmentPagerAdapter? = null
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar)
 //        supportActionBar!!.setDisplayHomeAsUpEnabled(true) // Show toolbar return arrow.
         toolbar.setNavigationOnClickListener(View.OnClickListener { })
         initView()
@@ -72,11 +73,15 @@ class MainActivity : AppCompatActivity() {
 //        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![2]))
 //        tabLayout.addTab(tabLayout.newTab().setText(listTitle!![3]))
 
-
         myFragmentPagerAdapter = MyFragmentPagerAdapter(supportFragmentManager, listFragment, listTitle)
 
         viewPager!!.adapter = myFragmentPagerAdapter
         tabLayout.setupWithViewPager(viewPager)
+
+        news.onClick {
+            val intent=Intent(this,FirstActivity::class.java)
+            startActivity(intent)
+        }
 
         viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {

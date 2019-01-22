@@ -25,11 +25,11 @@ class PictureAdapter(var context: Context, layoutId:Int) : BaseQuickAdapter<Cont
 
         val image: ImageView = viewHolder.getView<ImageView>(R.id.image)
 
-        val options = RequestOptions()
-                .centerCrop()
-                .placeholder(R.drawable.loading)
-                .error(R.drawable.error)
-                .priority(Priority.HIGH)
+//        val options = RequestOptions()
+//                .centerCrop()
+//                .placeholder(R.drawable.loading)
+//                .error(R.drawable.error)
+//                .priority(Priority.HIGH)
 
         GlideApp
                 .with(context)
