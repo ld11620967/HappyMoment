@@ -16,9 +16,9 @@ class FirstActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val uid = "10" + DeviceHelper.getInstance(this).serialno
-        val nickname = DeviceHelper.getInstance(this).appName + " test"
-        val avatarUrl = "http://download.sdk.mob.com/2018/02/06/12/1517890066763/2000_2000_79.49.jpg"
+        val uid = DeviceHelper.getInstance(this).serialno
+        val nickname = DeviceHelper.getInstance(this).appName
+        val avatarUrl = "https://img-blog.csdnimg.cn/20190123123208967.png"
         newsPageView = GROWGUI.getNewsPageView(this, uid, nickname, avatarUrl, true)
 
         setContentView(newsPageView)

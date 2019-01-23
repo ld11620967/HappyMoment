@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
 
         news.onClick {
-            val intent=Intent(this,FirstActivity::class.java)
+            val intent= Intent(this@MainActivity,FirstActivity::class.java)
             startActivity(intent)
         }
 
