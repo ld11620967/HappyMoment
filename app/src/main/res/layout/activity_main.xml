@@ -18,7 +18,7 @@
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:titleTextColor="@color/white">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/news"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
